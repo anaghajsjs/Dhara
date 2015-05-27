@@ -181,14 +181,15 @@ function Getproductdetails()
     var idlist = new Array();
     idlist = prod_ids.split(",");
     
-    document.getElementById("producthead").innerHTML = namelist[prodindex];
+   // document.getElementById("producthead").innerHTML = namelist[prodindex];
     
     var strurl = 'http://www.zenaspirations.com/clients/dara/services/product/'+idlist[prodindex];
+    
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", strurl, false );
     xmlHttp.send( null );
     
-    var jsonData = jQuery.parseJSON(xmlHttp.responseText);
+    var jsonData = JSON.parse(xmlHttp.responseText);
     
     id = jsonData.id;
     name = jsonData.name;
@@ -198,7 +199,7 @@ function Getproductdetails()
     minlot = jsonData.minlot;
     picture = jsonData.picture;
     status = jsonData.status;
-       
+           
     localStorage.setItem("selectedid", id);
     localStorage.setItem("selectedname", name);
     localStorage.setItem("selecteddescr", descr);
@@ -208,7 +209,7 @@ function Getproductdetails()
     localStorage.setItem("selectedpic", picture);
     localStorage.setItem("selectedstatus", status);
 
-    document.getElementById("prodimg").src="images/brinjal.png";
+    document.getElementById("prodimg").src=picture;
     document.getElementById("prodname").innerHTML = name;
     document.getElementById("prodprice").innerHTML = price;
 }

@@ -105,7 +105,7 @@
     color: #fff;
 }
 
-.mobile-custom input[type="text"],.mobile-custom a >span{
+.mobile-custom input[type="text"],.mobile-custom input[type="password"],.mobile-custom a >span{
 
     font-family: "Myriad Pro",sans-serif;
     text-align: left;
@@ -116,7 +116,7 @@
     bottom: 0;
     width: 100%;
 }
-.mobile-custom input[type="text"]{
+.mobile-custom input[type="text"],.mobile-custom input[type="password"]{
     margin:5vw 0 !important;
     padding:2vw 0!important;
     border:none;
@@ -751,7 +751,7 @@ label{
     
     .mobile-custom h2,
     .mobile-custom div[data-role="header"] h1,
-    .mobile-custom input[type="text"],
+    .mobile-custom input[type="text"],.mobile-custom input[type="password"],
     .mobile-custom a >span
     {
         font-size:30px!important;
@@ -793,7 +793,7 @@ label{
     
     .mobile-custom h2,
     .mobile-custom div[data-role="header"] h1.ui-title,
-    .mobile-custom input[type="text"],
+    .mobile-custom input[type="text"],.mobile-custom input[type="password"],
     .mobile-custom a >span
     {
     font-size:26px!important;
@@ -835,7 +835,7 @@ label{
     
     .mobile-custom h2,
     .mobile-custom div[data-role="header"] h1.ui-title,
-    .mobile-custom input[type="text"],
+    .mobile-custom input[type="text"],.mobile-custom input[type="password"],
     .mobile-custom a >span
     {
     font-size:22px!important;
@@ -891,7 +891,7 @@ label{
     
     .mobile-custom h2,
     .mobile-custom div[data-role="header"] h1.ui-title,
-    .mobile-custom input[type="text"],
+    .mobile-custom input[type="text"],.mobile-custom input[type="password"],
     .mobile-custom a >span
     {
     font-size:18px!important;
