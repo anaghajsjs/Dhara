@@ -13,16 +13,18 @@
         </style>
 	<script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
     </head>
-    <body class="mobile-custom">
+    <body class="mobile-custom" onload="GetcartItems()">
         <div data-role="page"  id="Products_List" class="main-menu-Zen-div">
             <div data-role="header" data-position="fixed">
                 <a href="product.html" class="iconsprite-mn-bar" data-transition="slide" data-direction="reverse" rel="external"></a>
                 <h1>Cart Items</h1>
+		<a href="category.html" class="iconsprite-mn-bar" data-transition="slide" rel="external"></a>
             </div>
             <div data-role="content">
-                <ul data-role="listview" data-inset="false" class="text-black text-grey">
-                    <li data-icon="false">
+                <ul data-role="listview" id="cartlist" data-inset="false" class="text-black text-grey">
+                <!--    <li data-icon="false">
                         <a href="product.html" data-transition="slide" rel="external">
                             <div class="firstdiv">
                                 <img src="images/v1.png" class="imground" alt=""/>
@@ -83,7 +85,7 @@
                     </li>
 		    <li data-icon="false">
                         <a href="shipping.html" data-transition="slide" rel="external"><input type='submit' name='Place Order' id='Place Order' class="fieldsubmit" value='Place Order' tabindex='50'/></a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>

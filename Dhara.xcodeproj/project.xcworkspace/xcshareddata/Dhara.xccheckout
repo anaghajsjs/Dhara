@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>47527BD9-E073-4E43-8286-903D6EECDCCA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Dhara</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>870668043A35607118573CEA049A796DB08A1868</key>
+		<string>https://github.com/anaghajsjs/Dhara.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Dhara.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>870668043A35607118573CEA049A796DB08A1868</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/anaghajsjs/Dhara.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>870668043A35607118573CEA049A796DB08A1868</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>870668043A35607118573CEA049A796DB08A1868</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Dhara</string>
+		</dict>
+	</array>
+</dict>
+</plist>

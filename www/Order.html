@@ -11,16 +11,14 @@
             .main-menu-mobile { width: 90%;float: left; }
             .ledgers-global { width: 10%;float: right; }
         </style>
-	<!--<script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/jquery.mobile-1.3.2.min.js"></script>-->
+	<script src="js/jquery-1.9.1.min.js"></script>
+    <!--    <script src="js/jquery.mobile-1.3.2.min.js"></script>-->
 	<script type="text/javascript" src="js/index.js"></script>
     </head>
-    <body class="mobile-custom" onload="Getproductdetails()">
+    <body class="mobile-custom" onload="GetCartDetails()">
         <div data-role="page"  id="ledger_entry_people" class="main-menu-Zen-div">
             <div data-role="header" class=" ">
-		
-		    <a href="sublist.html" data-transition="slide" class="iconsprite-mn-arrow-left" data-direction="reverse" data-iconpos="notext" rel="external"></a>
-		
+                <a href="cart.html" data-transition="slide" class="iconsprite-mn-arrow-left" data-direction="reverse" data-iconpos="notext" rel="external"></a>
                 <h1 id="producthead"></h1>
             </div>
             <div data-role="content">
@@ -30,24 +28,14 @@
 		<div class="cont_detail">
 		    <form id="myForm">
 			<div class="prodfirst">
-			    <label id="prodname" for="name" class="text1">Fresh Brinjal</label><br/>
-			    <label for="name" class="text2">Price: <span id="prodprice"></span><span> Rs</span></label>
+			    <label id="prodname" for="name" class="text1"></label><br/>
+			   <!-- <label for="price" class="text2">Price: <span id="prodprice"></span><span> Rs</span></label>-->
+			    <label for="quantity" class="text2">Order Quantity: <span id="prodqty"></span><span> Gram</span></label>
+			    <label for="tprice" class="text2">Total Price: <span id="prodtprice"></span><span> Rs</span></label>
 			    <br/>
 			</div>
-			<div class="prodlast">
-			    <div class="carticon">
-				<a href="cart.html" data-transition="slide" rel="external">
-				<img src="images/cart.png" width="100%" alt=""/><br/>
-			    </a>
-			    </div>
-			</div>
-			
 			<div class="qnty">
-			    <label for="quantity" class="textfeeld_text">Quantity: </label>
-			    <input type='text' name='qty' id='quantity' class="field textfeeld_qt" value='' tabindex='10'/>
-			    <label for="quantity" class="textfeeld_text pd">kg</label>
-			    <div style = "clear:both;"></div>
-			    <button type='button' name='Add to cart' id='Add to cart' class="button" onclick='AddtoCart()'>Add to cart</button>
+			    <button type='button' name='Place Order' id='Place Order' class="button" onclick='PlaceOrder()'>Place Order</button>
 			</div>
 		    </form>
 		</div>

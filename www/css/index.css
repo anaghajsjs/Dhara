@@ -1,6 +1,6 @@
 
 .mobile-custom *{
-    background:transparent;
+  /*  background:transparent;*/
     border:none;
     border-radius: 0;
     box-shadow: none !important;
@@ -88,7 +88,7 @@
     font-weight: 100;
 }
 .ui-btn-inner{
-    padding:30px 0;
+    padding:5vw 0;
   /*  line-height: 2;*/
     background-color:#71ae08;
 }
@@ -348,6 +348,7 @@ text-decoration: underline;
 }
 .iconsprite-mn-arrow-left{
     background-position: -145px -94px;
+    margin-left: -75vw !important;
 }
 .iconsprite-mn-page{
     background-position: -254px -38px;
@@ -708,7 +709,10 @@ text-decoration: underline;
 
 input{
   
-  float: right;
+ /* float: right;*/
+    background-color: #71ae08;
+    padding: 7vw;
+    width: 100%;
     
     
 }
@@ -2470,7 +2474,7 @@ use translate instead of translate3d for the first move.
 .text2 span{color:#F00;}
 .qnty{ clear:both; width:100%; float:left}
 .textfeeld_qt{width:50% !important;float:left;background-color: #fff !important;}
-.textfeeld_text{width:20%;font-size:4vw;float:left; margin:8vw 0}
+.textfeeld_text{width:20%;font-size:4vw;float:left;padding: 2vw 0; margin:5vw 0}
 .pd{ padding:0 15px}
 .cont_detail{padding:15px;}
 
@@ -2478,4 +2482,52 @@ use translate instead of translate3d for the first move.
 .carticon
 {
     width: 85%;
+}
+
+.fieldsubmit
+{
+    background-color: #71ae08;
+    padding: 5vw 0;
+    width: 100%;
+    color: #fff !important;
+    clear:both !important;
+    display: block;
+    font-size: 5vw;
+    min-width: 0.75em;
+    overflow: hidden;
+    padding: 0.6em 20px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flds {
+    cursor: pointer;
+    text-align: center;
+    font-family: Helvetica,Arial,sans-serif;
+    color: #222;
+}
+.ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c {
+  
+}
+.ui-btn-up-c {
+  
+}
+
+body
+{
+    background: url('../images/bg.jpg')repeat !important;  
+}
+
+.button
+{
+    background-color: #71ae08;
+    color: #fff;
+    width: 100%;
+    font-size: 5vw;
+    padding: 5vw;    
+}
+
+u {
+    text-decoration: underline;
 }
