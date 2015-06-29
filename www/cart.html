@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="js/index.js"></script>
     </head>
     <body class="mobile-custom" onload="GetcartItems()">
-        <div data-role="page"  id="Products_List" class="main-menu-Zen-div">
+        <div data-role="page"  id="Products_List" class="main-menu-Zen-div allpage">
             <div data-role="header" data-position="fixed">
                 <a href="product.html" class="iconsprite-mn-bar" data-transition="slide" data-direction="reverse" rel="external"></a>
                 <h1>Cart Items</h1>
@@ -87,6 +87,7 @@
                         <a href="shipping.html" data-transition="slide" rel="external"><input type='submit' name='Place Order' id='Place Order' class="fieldsubmit" value='Place Order' tabindex='50'/></a>
                     </li>-->
                 </ul>
+		<button type='button' name='PlaceOrder' id='PlaceOrder' style="display:none;" class="button" onclick='Placeshipto()'>Place Order</button>
             </div>
         </div>
 

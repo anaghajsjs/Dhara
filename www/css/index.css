@@ -9,11 +9,24 @@
     text-decoration:none;
     position:relative;
     font-weight: 100;
+    font-size: 6vw;
 }
 .mobile-custom div[data-role="page"]{
-    padding:0!important;
+    
     background: url('../images/bg.jpg')repeat !important;
 }
+
+.allpage
+{
+    padding:0 !important;    
+}
+
+.loginpage
+{
+    margin-top: 5vw;
+    padding:10vw !important;
+}
+
 .mobile-custom  li {
     border-bottom:1px solid #ececec ;
 }
@@ -118,7 +131,7 @@
 }
 .mobile-custom input[type="text"],.mobile-custom input[type="password"]{
     margin:5vw 0 !important;
-    padding:2vw 0!important;
+    padding:4vw 0!important;
     border:none;
     box-shadow: none;
     font-family: "Myriad Pro",sans-serif;
@@ -754,7 +767,7 @@ label{
     .mobile-custom input[type="text"],.mobile-custom input[type="password"],
     .mobile-custom a >span
     {
-        font-size:30px!important;
+        font-size:7vw !important;
         /*width: 35%;
         margin: auto;
         color: #000;*/
@@ -2445,6 +2458,17 @@ use translate instead of translate3d for the first move.
     width: 100%;
 }
 
+.imglogo
+{
+    margin: auto;
+    position: relative;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 75%;
+}
+
 .plusclass
 {
     float: right;
@@ -2465,6 +2489,12 @@ use translate instead of translate3d for the first move.
 .maindiv
 {
     background-color: #ffffff;
+    width: 100%;
+    margin: auto;
+}
+
+.logo
+{
     width: 100%;
     margin: auto;
 }

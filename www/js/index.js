@@ -166,6 +166,7 @@ function Getproductdetails()
     var descr;
     var price;
     var unit;
+    var unitid;
     var minlot;
     var picture;
     var status;
@@ -199,12 +200,14 @@ function Getproductdetails()
     minlot = jsonData.minlot;
     picture = jsonData.picture;
     status = jsonData.status;
+    unitid = jsonData.unitid;
            
     localStorage.setItem("selectedid", id);
     localStorage.setItem("selectedname", name);
     localStorage.setItem("selecteddescr", descr);
     localStorage.setItem("selectedprice", price);
     localStorage.setItem("selectedunit", unit);
+    localStorage.setItem("selectedunitid", unitid);
     localStorage.setItem("selectedminlot", minlot);
     localStorage.setItem("selectedpic", picture);
     localStorage.setItem("selectedstatus", status);
@@ -222,7 +225,11 @@ function AddtoCart()
         myForm.quantity.focus();
     }
     
-    var idlist = [];
+    var selid = localStorage.getItem("selectedid");
+    var userid = localStorage.getItem("userid");
+    var unitid = localStorage.getItem("selectedunitid");
+    var ordermasterid;
+ /*   var idlist = [];
     var piclist = [];
     var prodlist = [];
     var qtylist = [];
@@ -231,27 +238,20 @@ function AddtoCart()
     if(localStorage.getItem("addedids"))
     {
         idlist.push(localStorage.getItem("addedids"));
-      
-    
         piclist.push(localStorage.getItem("addedpics"));
-     
-    
         prodlist.push(localStorage.getItem("addednames"));
-     
-    
         qtylist.push(localStorage.getItem("addedqtys"));
-    
-    
-        pricelist.push(localStorage.getItem("addedprices"));
-                       
-    }
+        pricelist.push(localStorage.getItem("addedprices"));      
+    }*/
                 
+    var product = document.getElementById("prodname").innerHTML;
     var price = document.getElementById("prodprice").innerHTML;
     var qty = document.getElementById("quantity").value;
     var totalprice;
     totalprice = price * qty;
+    var unit = 'kg';
 
-    idlist.push(localStorage.getItem("selectedid"));
+  /*   idlist.push(localStorage.getItem("selectedid"));
     piclist.push(localStorage.getItem("selectedpic"));
     prodlist.push(document.getElementById("prodname").innerHTML);
     pricelist.push(totalprice);
@@ -262,14 +262,63 @@ function AddtoCart()
     localStorage.setItem("addednames", prodlist);
     localStorage.setItem("addedqtys", qtylist);
     localStorage.setItem("addedprices", pricelist);
-    localStorage.setItem("addedpics", piclist);
+    localStorage.setItem("addedpics", piclist);*/
+  
+    var ormid = localStorage.getItem("ordermasterid");
+  
+    if (ormid)
+    {
+        ordermasterid = ormid;
     
-    document.location.href = "cart.html";
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/order_addtocart/'+ordermasterid+'/'+userid+'/'+selid+'/'+qty+'/'+unitid+'/'+totalprice;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+
+        
+        var jsonDatanew = jQuery.parseJSON(xmlHttp.responseText);
+       
+        if(jsonDatanew.id)
+        {
+            alert ('Item Added to cart successfully');
+            document.location.href = "cart.html";
+        }
+    }
+    else
+    {
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/order_comit/'+userid;
+    
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+    
+        var jsonData = jQuery.parseJSON(xmlHttp.responseText);
+        
+        if(jsonData.id)
+        {
+            ordermasterid = jsonData.id;
+            localStorage.setItem("ordermasterid", jsonData.id);
+            
+            var strurl = 'http://www.zenaspirations.com/clients/dara/services/order_addtocart/'+ordermasterid+'/'+userid+'/'+selid+'/'+qty+'/'+unitid+'/'+totalprice;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", strurl, false );
+            xmlHttp.send( null );
+
+            
+            var jsonDatanew = jQuery.parseJSON(xmlHttp.responseText);
+       
+            if(jsonDatanew.id)
+            {
+                alert ('Item Added to cart successfully');
+                document.location.href = "cart.html";
+            }
+        }
+    }
 }
 
 function GetcartItems()
 {
-    if(localStorage.getItem("addedids"))
+  /*  if(localStorage.getItem("addedids"))
     {
         var id = localStorage.getItem("addedids");
         var idlist = new Array();
@@ -294,6 +343,51 @@ function GetcartItems()
     else
     {
         alert('Cart Empty');
+    }*/
+  
+    document.getElementById("PlaceOrder").style.display='none';
+  
+    var i;
+    var idlist = [];
+    var unitlist = [];
+    var prodlist = [];
+    var qtylist = [];
+    var pricelist = [];
+    var piclist = []; 
+  
+    var userid = localStorage.getItem("userid");
+  
+    var strurl = 'http://www.zenaspirations.com/clients/dara/services/viewcart/'+userid;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", strurl, false );
+    xmlHttp.send( null );
+        
+    var jsonData = JSON.parse(xmlHttp.responseText);
+    
+    $.each( jsonData, function ( key, value )
+    {
+        idlist.push(value.product_id);
+        unitlist.push(value.unit);
+        prodlist.push(value.product);
+        qtylist.push(value.qty);
+        pricelist.push(value.price);
+    });
+       
+    if (idlist.length == 0)
+    {
+        alert('Cart Empty');
+    }
+    else
+    {
+        for (i = 0; i < idlist.length; i++)
+        {
+            var strurl = 'http://www.zenaspirations.com/clients/dara/services/product/'+idlist[i];
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", strurl, false );
+            xmlHttp.send( null );
+            var jsonData = JSON.parse(xmlHttp.responseText);
+            piclist.push(jsonData.picture);
+        }
     }
     
     var $ul = $( '<ul id="cartlist">' );
@@ -302,6 +396,7 @@ function GetcartItems()
     {
         $("#cartlist").append('<li id="menuli" name="head"><a href="Order.html" data-transition="slide" rel="external"><div class="firstdiv"><img src="'+piclist[i]+'" class="imground" alt=""/></div><div class="middlediv"><h2 id="prodname"> '+prodlist[i]+' </h2><p id="proddesc"> '+'Price:'+pricelist[i]+' Rs'+' </p></div><div class="lastdiv"><img src="images/plus.png" class="plusclass" alt=""/></div></li>' );
     }
+    
     $('#cartlist').listview('refresh');
     
     $('#cartlist').delegate('li', 'tap', function ()
@@ -310,6 +405,10 @@ function GetcartItems()
         localStorage.setItem("cartindex", index);
     });
  
+ if (idlist.length != 0)
+ {
+    document.getElementById("PlaceOrder").style.display='block';
+ }
  
   /*  var strurl = 'http://www.zenaspirations.com/clients/dara/services/viewcart/'+ordermasterid;
     var xmlHttp = new XMLHttpRequest();
@@ -354,6 +453,11 @@ function GetCartDetails()
     document.getElementById("prodtprice").innerHTML = pricelist[cartindex];
 }
 
+function Placeshipto()
+{
+    document.location.href = "shipping.html";
+}
+
 function PlaceOrder()
 {
     var id;
@@ -361,19 +465,36 @@ function PlaceOrder()
     var price;
     var qty;
     
-    id = localStorage.getItem("orderprodid");
-    name = document.getElementById("prodname").innerHTML;
-    qty = document.getElementById("prodqty").innerHTML;
-    price = document.getElementById("prodtprice").innerHTML;
+    var ormid = localStorage.getItem("ordermasterid");
     
+    var name = document.getElementById("name").value;
+    var address = document.getElementById("address").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
     
-    var ordermaster_customer = "181";
-    var strurl = 'http://www.zenaspirations.com/clients/dara/services/order_comit/'+ordermaster_customer;
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", strurl, false );
-    xmlHttp.send( null );
+    if(name == '' || address == '' || phone == '' || email == '')
+    {
+        alert("Please fill all the fields");
+    }
+    else
+    {
+        var fuladress = name + ',' + address;
     
+        var address = 'addrss';
     
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/order_checkout/'+ormid+'/'+fuladress+'/'+phone;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+    
+        var jsonData = jQuery.parseJSON(xmlHttp.responseText);
+
+        if (jsonData.status)
+        {
+            localStorage.removeItem("ordermasterid");
+            document.location.href = "category.html";
+        }
+    }
 }
 
 function OrderAddToCart()

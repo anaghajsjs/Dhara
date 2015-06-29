@@ -16,20 +16,23 @@
 	<script type="text/javascript" src="js/index.js"></script>
     </head>
     <body class="mobile-custom">
-        <div data-role="page"  id="ledger_entry_people" class="main-menu-Zen-div">
+        <div data-role="page"  id="ledger_entry_people" class="main-menu-Zen-div loginpage">
             <div data-role="content">
+		<div class="logo">
+		    <img src="img/Dharalogo.jpg" id="prodimg" class="imglogo" alt=""/>
+		</div>
 		<form>
                     <div data-role="body" style="width: 100%">
-                    <input type="text" id="usrname" name="ledger_name" placeholder="USERNAME"  style="width: 100%; float: left;background-color: white"/>
-                    <input type="password" id="pwd" name="ledger_description" placeholder="PASSWORD"  style="width: 100%; float: left;background-color: white">
-                    <div style = "clear:both;"></div>
-		   <button type='button' name='LOGIN' class="button"  id='submit' onclick="Login()">LOGIN</button>
-		   <div style = "clear:both;"></div>
-		   <div style="padding:5vw;">
-		    If you are not a member <a href="signup.html" rel="external"><span style="text-decoration:underline;">SignUp</span></a>
-		   </div>
+			<input type="text" id="usrname" name="ledger_name" placeholder="USERNAME"  style="width: 100%; float: left;background-color: white"/>
+			<input type="password" id="pwd" name="ledger_description" placeholder="PASSWORD"  style="width: 100%; float: left;background-color: white">
+			<div style = "clear:both;"></div>
+			<button type='button' name='LOGIN' class="button"  id='submit' onclick="Login()">LOGIN</button>
+			<div style = "clear:both;"></div>
+			<div style="padding:5vw;">
+			If you are not a member <a href="signup.html" rel="external"><span style="text-decoration:underline;">SignUp</span></a>
+			</div>
+		    </div>
                 </form>
-            </div>
         </div>
         <script>
 	    $(function()
