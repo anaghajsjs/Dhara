@@ -1,3 +1,96 @@
+function Fpasswordclick()
+{
+    var username = document.getElementById("usrname").value;
+    
+    if(username == '')
+    {
+        alert("Please Enter Your Mail Id");
+    }
+    else
+    {
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/customer_forgetpassword/'+username;
+        
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+    
+    
+        var jsonData = jQuery.parseJSON(xmlHttp.responseText);
+        
+        if(jsonData.message)
+        {
+            alert(jsonData.message);
+        }
+    }
+}
+
+function Getprofiledetails()
+{
+    var id;
+    var addres;
+    var phone;
+    var email;
+    
+    var username = document.getElementById("usrname").value;
+    
+    if(username == '')
+    {
+        alert("Please Enter Your Mail Id");
+    }
+    else
+    {
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/customer_getcontact/'+username;
+    
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+    
+        var jsonData = JSON.parse(xmlHttp.responseText);
+    
+    $.each( jsonData, function ( key, value )
+    {
+        id = value.id;
+        addres = value.address;
+        phone = value.phone;
+        email = value.email;
+    });
+        
+    }
+
+    document.getElementById("adres").innerHTML = addres;
+    document.getElementById("phone").innerHTML = phone;
+    document.getElementById("email").innerHTML = email;
+}
+
+function Updateprofiledetails()
+{
+    var email = document.getElementById("email").value;
+    var adres = document.getElementById("address").value;
+    var phone = document.getElementById("phone").value;
+    
+    if(email == '' || adres == '' || phone == '')
+    {
+        alert("Please fill all the fields");
+    }
+    else
+    {
+        var strurl = 'http://www.zenaspirations.com/clients/dara/services/customer_updatecontact/'+email+'/'+adres+'/'+phone;
+    
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", strurl, false );
+        xmlHttp.send( null );
+    
+        var jsonData = JSON.parse(xmlHttp.responseText);
+    
+        if (jsonData.message)
+        {
+            alert(jsonData.message);
+        }
+    }
+}
+
+
+
 function Login()
 {
     var username = document.getElementById("usrname").value;

@@ -15,12 +15,16 @@
         <script src="js/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
     </head>
-    <body class="mobile-custom" onload="GetcartItems()">
+    <body class="mobile-custom bodyclass" onload="GetcartItems()">
         <div data-role="page"  id="Products_List" class="main-menu-Zen-div allpage">
             <div data-role="header" data-position="fixed">
                 <a href="category.html" class="iconsprite-mn-bar" data-transition="slide" data-direction="reverse" rel="external"></a>
                 <h1>Cart Items</h1>
+<<<<<<< Updated upstream
 		<!--<a href="category.html" class="iconsprite-mn-bar" data-transition="slide" rel="external"></a>-->
+=======
+		
+>>>>>>> Stashed changes
             </div>
             <div data-role="content">
                 <ul data-role="listview" id="cartlist" data-inset="false" class="text-black text-grey">
@@ -87,23 +91,12 @@
                         <a href="shipping.html" data-transition="slide" rel="external"><input type='submit' name='Place Order' id='Place Order' class="fieldsubmit" value='Place Order' tabindex='50'/></a>
                     </li>-->
                 </ul>
-		<button type='button' name='PlaceOrder' id='PlaceOrder' style="display:none;" class="button" onclick='Placeshipto()'>Place Order</button>
+		<button type='button' name='PlaceOrder' id='PlaceOrder' style="display:none;" onclick='Placeshipto()'>Place Order</button>
             </div>
         </div>
 
         
 		
-        <script>
-	    $(function()
-	    {
-		$( "div.ledgers-global div ul li" ).on( "swipe", swipeHandler );
-		function swipeHandler( event )
-		{
-		    /*   $( event.target ).addClass( "swipe" );*/
-                    $('div.ledgers-global div ul li .btn-archive').show();
-		    alert('hi');
-		}
-	    });
-	</script>
+        
     </body>
 </html>

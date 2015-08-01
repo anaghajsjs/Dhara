@@ -187,9 +187,11 @@ text-align: center;
 .main-menu-Zen-div h1 {
     font-family: DejaVu, sans-serif;
     text-align: center;
-    color:black;
+    color:#fff;
     font-size: 20px;
-    margin-top:108px;
+  /*  margin-top:108px;*/
+    margin: 0;
+    padding: 0;
     font-weight: 400;
 }
 
@@ -297,6 +299,7 @@ text-decoration: underline;
     border-radius: 0;
     height: 50px;
     width: 50px;
+    float: left;
     background-color: transparent;
     border: none;
     box-shadow: none !important;
@@ -361,7 +364,7 @@ text-decoration: underline;
 }
 .iconsprite-mn-arrow-left{
     background-position: -145px -94px;
-    margin-left: -75vw !important;
+  /*  margin-left: -75vw !important;*/
 }
 .iconsprite-mn-page{
     background-position: -254px -38px;
@@ -874,9 +877,9 @@ label{
   .main-menu-Zen-div h1 {
     font-family: DejaVu, sans-serif;
     text-align: center;
-    color:black;
+    color:#fff;
     font-size: 10px;
-    margin-top:108px;
+  /*  margin-top:108px;*/
     font-weight: 400;
     }
     
@@ -2560,4 +2563,10 @@ body
 
 u {
     text-decoration: underline;
+}
+
+.bodyclass
+{
+    margin: 0 !important;
+    padding: 0 !important;
 }

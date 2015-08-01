@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+        <link href="css/index.css" rel="stylesheet">
+        <title>ZenTrade Application</title>
+        <style>
+            .main-menu-mobile { width: 90%;float: left; }
+            .ledgers-global { width: 10%;float: right; }
+        </style>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+    </head>
+    <body class="mobile-custom bodyclass">
+        <div data-role="page"  id="ledger_entry_people" class="main-menu-Zen-div">
+	    <div data-role="header" data-position="fixed">
+                <a href="getprofile.html" class="iconsprite-mn-bar" data-transition="slide" data-direction="reverse" rel="external"></a>
+                <h1>Update Profile</h1>
+            </div>
+            <div data-role="content" class="loginpage">
+		<form>
+                    <div data-role="body" style="width: 100%">
+			<input type="text" id="email" name="ledger_name" placeholder="Email ID"  style="width: 100%; float: left;background-color: white"/>
+			<input type="text" id="address" name="ledger_name" placeholder="ADDRESS"  style="width: 100%; float: left;background-color: white"/>
+			<input type="text" id="phone" name="ledger_name" placeholder="PHONE"  style="width: 100%; float: left;background-color: white"/>
+			<div style = "clear:both;"></div>
+			
+			<button type='button' name='Fpassword' class="button"  id='submit' onclick="Updateprofiledetails()">SUBMIT</button>
+			<div style = "clear:both;"></div>
+		    </div>
+                </form>
+	    </div>
+        </div>
+    </body>
+</html>

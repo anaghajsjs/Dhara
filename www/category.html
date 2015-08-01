@@ -110,19 +110,9 @@
                     </li> -->
                 </ul>
             </div>
+	    <div data-role="header" data-position="fixed">
+		<a href="getprofile.html" class="iconsprite-mn-bar" data-transition="slide" rel="external"></a>
+            </div>
         </div>
-		
-        <script>
-	    $(function()
-	    {
-		$( "div.ledgers-global div ul li" ).on( "swipe", swipeHandler );
-		function swipeHandler( event )
-		{
-		    /*   $( event.target ).addClass( "swipe" );*/
-                    $('div.ledgers-global div ul li .btn-archive').show();
-		    alert('hi');
-		}
-	    });
-	</script>
     </body>
 </html>
